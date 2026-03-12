@@ -1,0 +1,30 @@
+{
+  "name": "telegram-form-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "volta": {
+    "node": "25.8.1",
+    "npm": "11.11.1"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "generate-types": "wrangler types",
+    "type-check": "npm run generate-types && tsc --noEmit",
+    "test": "tsx --test src/**/*.test.ts",
+    "ci": "npm run type-check && npm run test",
+    "send:faker-message": "node scripts/send-faker-message.mjs",
+    "upgrade-deps": "npx npm-check-updates -u && npm install"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "@types/node": "^25.4.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.72.0"
+  }
+}
