@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".tool-versions"
+          node-version-file: "package.json"
           cache: npm
 
       - name: Install dependencies
