@@ -18,7 +18,10 @@ export function getCorsHeaders(allowedOrigin?: string): HeadersInit {
   };
 }
 
-export function isOriginAllowed(origin: string | null, allowedOrigin?: string): boolean {
+export function isOriginAllowed(
+  origin: string | null,
+  allowedOrigin?: string,
+): boolean {
   const configuredOrigin = normalizeConfiguredOrigin(allowedOrigin);
   if (!configuredOrigin) return true;
   if (!origin) return true;

@@ -12,7 +12,10 @@ export type ValidationResult =
   | { ok: true; payload: ContactFormPayload }
   | { ok: false; status: number; message: string };
 
-function normalizeField(value: FormDataEntryValue | null, fallback: string): string {
+function normalizeField(
+  value: FormDataEntryValue | null,
+  fallback: string,
+): string {
   if (typeof value !== "string") return fallback;
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : fallback;
@@ -52,7 +55,8 @@ export function validateFormData(formData: FormData): ValidationResult {
     return {
       ok: false,
       status: 400,
-      message: `Adresse e-mail trop longue (${MAX_EMAIL_LENGTH} caracteres max)`,
+      message:
+        `Adresse e-mail trop longue (${MAX_EMAIL_LENGTH} caracteres max)`,
     };
   }
 

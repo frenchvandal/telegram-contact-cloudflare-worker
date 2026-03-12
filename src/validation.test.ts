@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
-  MAX_MESSAGE_LENGTH,
   isHoneypotTriggered,
   isSupportedContentType,
+  MAX_MESSAGE_LENGTH,
   validateFormData,
 } from "./validation";
 
@@ -17,8 +17,14 @@ function createFormData(fields: Record<string, string>): FormData {
 }
 
 test("accepts supported content types", () => {
-  assert.equal(isSupportedContentType("multipart/form-data; boundary=abc"), true);
-  assert.equal(isSupportedContentType("application/x-www-form-urlencoded"), true);
+  assert.equal(
+    isSupportedContentType("multipart/form-data; boundary=abc"),
+    true,
+  );
+  assert.equal(
+    isSupportedContentType("application/x-www-form-urlencoded"),
+    true,
+  );
   assert.equal(isSupportedContentType("application/json"), false);
 });
 

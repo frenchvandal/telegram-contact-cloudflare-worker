@@ -5,7 +5,10 @@ const TELEGRAM_MAX_TEXT_LENGTH = 4096;
 const TELEGRAM_SAFETY_BUFFER = 96;
 const TELEGRAM_TEXT_BUDGET = TELEGRAM_MAX_TEXT_LENGTH - TELEGRAM_SAFETY_BUFFER;
 
-function buildTelegramMessage(payload: ContactFormPayload, metadata: RequestMetadata): string {
+function buildTelegramMessage(
+  payload: ContactFormPayload,
+  metadata: RequestMetadata,
+): string {
   return [
     "<b>Nouveau message de formulaire</b>",
     "",

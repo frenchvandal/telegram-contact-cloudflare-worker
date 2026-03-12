@@ -35,7 +35,9 @@ if (!response.ok) {
 }
 
 if (!parsed || parsed.ok !== true) {
-  throw new Error(`Worker answered with a non-success payload: ${JSON.stringify(parsed)}`);
+  throw new Error(
+    `Worker answered with a non-success payload: ${JSON.stringify(parsed)}`,
+  );
 }
 
 console.log("Faker message sent successfully via worker endpoint.");
